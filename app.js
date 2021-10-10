@@ -6,10 +6,12 @@ const dotenv = require('dotenv').config();
 const app = express();
 const port = 8080;
 
-app.get('/api/credits', (req, res) => {
-  console.log(dotenv);
-    let leahcredits = JSON.stringify(credits.creditList(dotenv.parsed));
+app.get('/', (req, res) => {
+    res.send(`Oh, Hello.`);
+});
 
+app.get('/api/credits', (req, res) => {
+    let leahcredits = JSON.stringify(credits.creditList(dotenv.parsed));
     res.send(`${leahcredits}`);
 });
   
