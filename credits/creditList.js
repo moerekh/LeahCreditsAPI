@@ -33,7 +33,7 @@ exports.creditList = (env) => {
             
         });
         }).on('error', err => {
-            console.log('Error: ', err.message);
+            console.log(`Error:  ${err.message}`);
         });
         // method: 'GET',
         // mode: 'cors',
