@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 
 app.get('/api/credits', (req, res) => {
     let leahcredits = JSON.stringify(creditList.creditList(dotenv.parsed));
-    res.send(`${leahcredits}`);
+    res.send(leahcredits);
 });
   
 app.listen(port, () => {
