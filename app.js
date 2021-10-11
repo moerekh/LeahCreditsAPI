@@ -1,7 +1,7 @@
-const dotenv = require('dotenv').config();
 const express = require('express');
-const creditList = require('./credits/creditList.js');
 const app = express();
+const dotenv = require('dotenv').config();
+const creditList = require('./credits/creditList.js');
 const port = 8080;
 
 app.get('/', (req, res) => {
