@@ -15,25 +15,31 @@ exports.creditList = (env) => {
 
     // Make sure it is public or set to Anyone with link can view
     const my_spreadsheet_url = `https://sheets.googleapis.com/v4/spreadsheets/${env.MY_SPREADSHEET_ID}/values/ProductionCoordinator?alt=json&key=${env.MY_API_KEY}`;
-
+        
     https.get(my_spreadsheet_url, res => {
         let data = [];
+
+        console.log("Status code:");
+        console.log(res.statusCode);
+
+        console.log("headers:");
+        console.log(res.headers);
 
         res.on('data', chunk => {
             data.push(chunk);
         });
 
         res.on('end', () => {
-            console.log('Response ended: ');
             const my_data = JSON.parse(Buffer.concat(data).toString());
 
+            console.log('Response ended. ');
             console.log(`Got this:`);
             console.log(my_data);
             
         });
-        }).on('error', err => {
-            console.log(`Error:  ${err.message}`);
-        });
+    }).on('error', err => {
+        console.log(`Error:  ${err.message}`);
+    });
         // method: 'GET',
         // mode: 'cors',
         // headers: new https.headers({

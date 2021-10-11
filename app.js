@@ -1,8 +1,7 @@
 
 const express = require('express');
-const credits = require('./credits/creditList.js');
+const creditList = require('./credits/creditList.js');
 const dotenv = require('dotenv').config();
-
 const app = express();
 const port = 8080;
 
@@ -11,7 +10,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/credits', (req, res) => {
-    let leahcredits = JSON.stringify(credits.creditList(dotenv.parsed));
+    let leahcredits = JSON.stringify(creditList.creditList(dotenv.parsed));
     res.send(`${leahcredits}`);
 });
   
