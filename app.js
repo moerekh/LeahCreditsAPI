@@ -13,8 +13,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/credits', (req, res) => {
-    let leahcredits = JSON.stringify(creditList.creditList(contact_url));
-    res.send(leahcredits);
+  creditList.get_credits(contact_url)
+  .then(response => {
+    res.send(response);
+  });
 });
   
 app.listen(port, () => {
