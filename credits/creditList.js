@@ -1,3 +1,4 @@
+const https = require('https');
 
 class MyJob {
     constructor(my_title, artist, project_title, producer, director, year){
@@ -11,8 +12,6 @@ class MyJob {
 }
 
 exports.creditList = (env) => {
-    
-    const https = require('node:https');
 
     // Make sure it is public or set to Anyone with link can view
     const my_spreadsheet_url = `https://sheets.googleapis.com/v4/spreadsheets/${env.MY_SPREADSHEET_ID}/values/ProductionCoordinator?alt=json&key=${env.MY_API_KEY}`;
