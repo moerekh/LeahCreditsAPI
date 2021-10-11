@@ -35,6 +35,8 @@ exports.creditList = (env) => {
             console.log('Response ended. ');
             console.log(`Got this:`);
             console.log(my_data);
+
+            return my_data;
             
         });
     }).on('error', err => {
