@@ -11,12 +11,9 @@ class MyJob {
     }
 }
 
-exports.creditList = (env) => {
-
-    // Make sure it is public or set to Anyone with link can view
-    const my_spreadsheet_url = `https://sheets.googleapis.com/v4/spreadsheets/${process.env.MY_SPREADSHEET_ID}/values/ProductionCoordinator?alt=json&key=${process.env.MY_API_KEY}`;
+exports.creditList = (url) => {
         
-    https.get(my_spreadsheet_url, res => {
+    return https.get(url, res => {
         let data = [];
 
         console.log("Status code:");
